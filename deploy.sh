@@ -7,7 +7,7 @@ echo "=========================================="
 rm -rf target/
 echo "Deleted target/ folder"
 echo "=========================================="
-
+# TWEAK JAR BUILD COMMAND FOR GRADLE BUILDS
 echo "Generating jar file"
 "./mvnw" install
 echo "=========================================="
@@ -20,6 +20,7 @@ scp -i $1 resources/ec2-run-jar.sh "${2}:."
 echo "Copied latest resources file from local machine to ec2 instance"
 echo "=========================================="
 
+# TWEAK JAR PATH FOR GRADLE BUILDS
 echo Exec: scp -i $1 target/kentarus-0.0.1-SNAPSHOT.jar "${2}:."
 scp -i $1 target/kentarus-0.0.1-SNAPSHOT.jar "${2}:."
 echo "Copied jar file from local machine to ec2 instance"
